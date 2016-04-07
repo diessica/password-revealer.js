@@ -8,7 +8,7 @@ Get it using [npm](https://www.npmjs.com).
 npm install password-revealer --save
 ```
 
-Or [download the ZIP file](#).
+Or [download the ZIP file](https://github.com/diessica/password-revealer.js/archive/master.zip) and use it as you want.
 
 ## Usage
 See [basic demo](examples/basic-demo.html).
