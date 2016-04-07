@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Revealer Demo</title>
+</head>
+<body>
+  <!-- 1. Define markup -->
+
+  <!-- 1.1 Input -->
+  <input type="password" id="password-field">
+
+  <!-- 1.2 Trigger -->
+  <button class="PasswordRevealer-trigger">Toggle</button>
+
+  <!-- 2. Include library -->
+  <script src="../dist/password-revealer.js"></script>
+
+  <!-- 3. Instantiate PasswordRevealer.js -->
+  <script>
+    PasswordRevealer('#password-field', true);
+  </script>
+</body>
+</html>
+
