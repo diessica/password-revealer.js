@@ -13,7 +13,7 @@ Or [download the ZIP file](#).
 ## Usage
 See [basic demo](examples/basic-demo.html).
 
-### `RevealPassword(input, initTrigger, options)`
+### `PasswordRevealer(input, initTrigger, options)`
 
 #### `input`
 
@@ -49,7 +49,7 @@ Default: `click`
 Event that will be attached to the trigger, in the case you are initializing a trigger.
 
 ## API
-Interact with a `RevealPassword` instance using the methods below.
+Interact with a `PasswordRevealer` instance using the methods below.
 
 ### `.showPassword()`
 It reveals the password for the `input` provided in the instance.
