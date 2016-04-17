@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>password-revealer.js | Easily reveal/hide passwords in input fields.</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
+</head>
+<body>
+  <iframe class="top" src="https://ghbtns.com/github-btn.html?user=diessica&repo=password-revealer.js&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="main-title">password-revealer<small>.js</small></h1>
+      <h2 class="main-subtitle">Easily <strong>reveal/hide passwords</strong> in input fields.</h2>
+      <code>npm install password-revealer --save</code>
+    </div>
+
+    <div style="background: rgba(0, 0, 0, 0.5)">
+      <p class="container" style="padding: 10px 0;">
+        <a href="https://github.com/diessica/password-revealer.js">Documentation →</a>
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Live Examples</h2>
+      <p>Init with default behaviour</p>
+      <pre>PasswordRevealer('#password-field').init()</pre>
+
+      <div class="input-container">
+
+        <!-- Live Example starts -->
+        <input type="password" id="password-field" value="CoolPassword123">
+        <button class="PasswordRevealer-trigger button">Toggle</button>
+        <!-- Live Example ends -->
+
+      </div>
+
+      <hr>
+
+      <p>Init with password revealed by default</p>
+      <pre>PasswordRevealer('#password-field', {
+  isRevealed: true
+}).init()</pre>
+      <div class="input-container">
+
+        <!-- Live Example starts -->
+        <input type="password" id="password-field-2" value="AwesomePassword#@">
+        <button class="PasswordRevealer-trigger-2 button">Toggle</button>
+        <!-- Live Example ends -->
+
+      </div>
+
+      <hr>
+
+      <p>Init with custom trigger</p>
+      <pre>PasswordRevealer('#password-field', {
+  trigger: {
+    selector: 'input[type="checkbox"]'
+  }
+}).init()</pre>
+      <div class="input-container">
+
+        <!-- Live Example starts -->
+        <input type="password" id="password-field-4" value="AnotherPassword123">
+        <div class="checkbox"><input type="checkbox"> Toggle password</div>
+        <!-- Live Example ends -->
+
+      </div>
+
+      <hr>
+
+      <p>Show pragmatically</p>
+      <pre>PasswordRevealer('#password-field').show()</pre>
+      <div class="input-container">
+
+        <!-- Live Example starts -->
+        <input type="password" id="password-field-3" value="AnotherNicePassword123">
+        <!-- Live Example ends -->
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        Under MIT license. <a href="https://github.com/diessica/password-revealer.js">Contribute on <strong>GitHub</strong>.</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Live Example starts -->
+  <script src="../dist/password-revealer.js"></script>
+  <script>
+    PasswordRevealer('#password-field').init();
+
+    PasswordRevealer('#password-field-2', {
+      isRevealed: true,
+      trigger: {
+        selector: '.PasswordRevealer-trigger-2'
+      }
+    }).init();
+
+    PasswordRevealer('#password-field-3').show();
+
+    PasswordRevealer('#password-field-4', {
+      trigger: {
+        selector: 'input[type="checkbox"]'
+      }
+    }).init();
+  </script>
+  <!-- Live Example ends -->
+
+</body>
+</html>
