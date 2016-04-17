@@ -16,32 +16,32 @@ describe('Given an PasswordRevealer instance', function () {
   })
 
   describe('Public methods', function () {
-    describe('#showPassword()', function () {
+    describe('#show()', function () {
       it('target should have type "text"', () => {
-        instance.showPassword()
+        instance.show()
         expect(input).to.have.attribute('type', 'text')
       })
     })
 
-    describe('#hidePassword()', function () {
+    describe('#hide()', function () {
       it('target should have type "password"', () => {
-        instance.hidePassword()
+        instance.hide()
         expect(input).to.have.attribute('type', 'password')
       })
     })
 
-    describe('#togglePassword()', function () {
+    describe('#toggle()', function () {
       it('target should have type "text" when target is initially unrevealed', () => {
-        instance.togglePassword()
+        instance.toggle()
         expect(input).to.have.attribute('type', 'text')
       })
 
       it('target should have type "password" when target is initially revealed', () => {
-        instance = PasswordRevealer(input, false, {
+        instance = PasswordRevealer(input, {
           isRevealed: true
         })
 
-        instance.togglePassword()
+        instance.toggle()
         expect(input).to.have.attribute('type', 'password')
       })
     })

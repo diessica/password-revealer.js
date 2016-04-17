@@ -1,9 +1,12 @@
-# password-revealer.js ![Build Status](https://travis-ci.org/diessica/password-revealer.js.svg)
+# password-revealer.js [![Build Status](https://travis-ci.org/diessica/password-revealer.js.svg)](https://travis-ci.org/diessica/password-revealer.js)
 
 > Easily reveal/hide passwords in input fields.
 
+## Motivation
+Mainly because the "Confirm Password" field must die.
+
 ## Install
-Get it using [npm](https://www.npmjs.com).
+Get it using [npm](https://www.npmjs.com):
 ```
 npm install password-revealer --save
 ```
@@ -11,21 +14,18 @@ npm install password-revealer --save
 Or [download the ZIP file](https://github.com/diessica/password-revealer.js/archive/master.zip) and use it as you want.
 
 ## Usage
-See [basic demo](examples/basic-demo.html).
+```js
+PasswordRevealer('#password-field')
+```
+> See [basic demo](examples/basic-demo.html).
 
-### `PasswordRevealer(input, initTrigger, options)`
+### `PasswordRevealer(input[, options])`
 
 #### `input`
 
 Type: `string` or `HTMLElement`
 
 Input field that will have its password revealed or hidden.<br><br>  
-
-#### `initTrigger`
-Type: `boolean`<br>
-Default: `false`
-
-Init, in a element with the selector provided in options, the trigger that reveals or hides the password.<br><br>
 
 #### `options`
 Type: `object`
@@ -51,18 +51,21 @@ Event that will be attached to the trigger, in the case you are initializing a t
 ## API
 Interact with a `PasswordRevealer` instance using the methods below.
 
-### `.showPassword()`
+### `.init()`
+It initializes, in a element with the selector provided in `options`, the trigger that reveals or hides the password.
+
+### `.show()`
 It reveals the password for the `input` provided in the instance.
 
-### `.hidePassword()`
+### `.hide()`
 It hides the password for the `input` provided in the instance.
 
-### `.togglePassword()`
-It reveals or hides the password for the `input` provided in the instance, depending on the current state of the `input`.
+### `.toggle()`
+It reveals or hides the password for the `input` provided in the instance, depending on the current state of the `input`. <br><br>
 
 ## TODO
 - [ ] Emit custom events.
-- [ ] Create a default trigger in the DOM if `initTrigger` is `true`.
+- [ ] Create a default trigger in the DOM when calling `init()`.
 
 ## License
 MIT
