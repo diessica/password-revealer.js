@@ -1,4 +1,4 @@
-# [password-revealer.js](https://diessi.ca/password-revealer.js/) [![Build Status](https://img.shields.io/npm/v/password-revealer.svg)](https://www.npmjs.com/package/password-revealer)  [![Build Status](https://travis-ci.org/diessica/password-revealer.js.svg)](https://travis-ci.org/diessica/password-revealer.js)
+# [password-revealer.js](https://diessi.ca/password-revealer.js/) [![npm version](https://img.shields.io/npm/v/password-revealer.svg)](https://www.npmjs.com/package/password-revealer)  [![Build Status](https://travis-ci.org/diessica/password-revealer.js.svg)](https://travis-ci.org/diessica/password-revealer.js)
 
 > Easily reveal/hide passwords in input fields.
 
@@ -14,9 +14,12 @@ npm install password-revealer --save
 Or [download the ZIP file](https://github.com/diessica/password-revealer.js/archive/master.zip) and use it as you want.
 
 ## Usage
-> See [basic demo](examples/basic-demo.html) and [live examples](https://diessi.ca/password-revealer.js/).
+> See [basic demo](examples/basic-demo.html) (without npm) and [live examples](https://diessi.ca/password-revealer.js/).
 
+Using npm:
 ```js
+import PasswordRevealer from 'password-revealer' // ES2015 module syntax
+
 PasswordRevealer('#password-field')
 ```
 
