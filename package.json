@@ -1,6 +1,6 @@
 {
   "name": "password-revealer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Easily reveal/hide passwords in input fields.",
   "main": "dist/password-revealer.js",
   "repository": {
@@ -13,8 +13,7 @@
   "scripts": {
     "build": "webpack --mode=build",
     "dev": "webpack --progress --colors --watch --mode=dev",
-    "test": "eslint ./src/*.js && mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test-watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "test": "eslint src && eslint test && ava --verbose"
   },
   "keywords": [
     "password",
@@ -25,24 +24,34 @@
     "password revealer"
   ],
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel": "6.3.13",
     "babel-core": "6.1.18",
     "babel-eslint": "5.0.0",
     "babel-loader": "6.1.0",
     "babel-plugin-add-module-exports": "0.1.2",
     "babel-preset-es2015": "6.3.13",
+    "browser-env": "^2.0.12",
     "chai": "3.4.1",
     "chai-dom": "^1.4.0",
-    "eslint": "1.7.2",
-    "eslint-loader": "1.1.0",
-    "jsdom": "^8.3.0",
-    "mocha": "2.3.4",
-    "mocha-jsdom": "^1.1.0",
-    "webpack": "1.12.9",
-    "yargs": "3.32.0"
+    "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "webpack": "1.12.9"
   },
   "dependencies": {
-    "deep-assign": "^2.0.0"
+    "merge-deep": "^3.0.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "./test/helpers/setup.js"
+    ],
+    "babel": "inherit"
   },
   "author": "Diéssica Gurskas",
   "license": "MIT"

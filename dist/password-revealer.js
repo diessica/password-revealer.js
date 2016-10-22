@@ -1,1 +1,241 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("PasswordRevealer",[],t):"object"==typeof exports?exports.PasswordRevealer=t():e.PasswordRevealer=t()}(this,function(){return function(e){function t(n){if(r[n])return r[n].exports;var o=r[n]={exports:{},id:n,loaded:!1};return e[n].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var r={};return t.m=e,t.c=r,t.p="",t(0)}([function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e},i=r(1),u=n(i),c=function(e,t){var r={isRevealed:!1,trigger:{selector:".PasswordRevealer-trigger",eventListener:"click"}};if(!e)throw new Error("Missing input argument");if("string"==typeof e&&(e=document.querySelector(e)),"INPUT"!==e.nodeName)throw new Error("First argument (input) must be an input element");if(!e.nodeType)throw new Error("First argument (input) must be an element");t="object"===("undefined"==typeof t?"undefined":o(t))?(0,u["default"])(r,t):r;var n=t.isRevealed,i=function(){e.type="text",n=!0},c=function(){e.type="password",n=!1},f=function(){n?c():i()};n&&i();var l=function(){var e=document.querySelector(t.trigger.selector);if(!e)throw new Error('Element "'+t.trigger.selector+'" must exist to init the trigger');e.addEventListener(t.trigger.eventListener,f)};return{show:i,hide:c,toggle:f,init:l}};t["default"]=c,e.exports=t["default"]},function(e,t,r){"use strict";function n(e){if(null===e||void 0===e)throw new TypeError("Sources cannot be null or undefined");return Object(e)}function o(e,t,r){var n=t[r];if(void 0!==n&&null!==n){if(c.call(e,r)&&(void 0===e[r]||null===e[r]))throw new TypeError("Cannot convert undefined or null to object ("+r+")");c.call(e,r)&&u(n)?e[r]=i(Object(e[r]),t[r]):e[r]=n}}function i(e,t){if(e===t)return e;t=Object(t);for(var r in t)c.call(t,r)&&o(e,t,r);if(Object.getOwnPropertySymbols)for(var n=Object.getOwnPropertySymbols(t),i=0;i<n.length;i++)f.call(t,n[i])&&o(e,t,n[i]);return e}var u=r(2),c=Object.prototype.hasOwnProperty,f=Object.prototype.propertyIsEnumerable;e.exports=function(e){e=n(e);for(var t=1;t<arguments.length;t++)i(e,arguments[t]);return e}},function(e,t){"use strict";e.exports=function(e){var t=typeof e;return null!==e&&("object"===t||"function"===t)}}])});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("PasswordRevealer", [], factory);
+	else if(typeof exports === 'object')
+		exports["PasswordRevealer"] = factory();
+	else
+		root["PasswordRevealer"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                   * password-revealer.js
+	                                                                                                                                                                                                                                                   * Easily reveal/hide passwords in input fields.
+	                                                                                                                                                                                                                                                   *
+	                                                                                                                                                                                                                                                   * @version 1.0.0
+	                                                                                                                                                                                                                                                   * @author Diéssica Gurskas <http://github.com/diessica>
+	                                                                                                                                                                                                                                                   * @license MIT
+	                                                                                                                                                                                                                                                   */
+
+
+	var _deepAssign = __webpack_require__(1);
+
+	var _deepAssign2 = _interopRequireDefault(_deepAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @param {String|HTMLElement} input
+	 * @param {Object} options
+	 */
+	var PasswordRevealer = function PasswordRevealer(input, options) {
+	  var defaults = {
+	    isRevealed: false,
+	    trigger: {
+	      selector: '.PasswordRevealer-trigger',
+	      eventListener: 'click'
+	    }
+	  };
+
+	  if (!input) {
+	    throw new Error('Missing input argument');
+	  }
+
+	  if (typeof input === 'string') {
+	    input = document.querySelector(input);
+	  }
+
+	  if (input.nodeName !== 'INPUT') {
+	    throw new Error('First argument (input) must be an input element');
+	  }
+
+	  if (!input.nodeType) {
+	    throw new Error('First argument (input) must be an element');
+	  }
+
+	  if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+	    options = (0, _deepAssign2.default)(defaults, options);
+	  } else {
+	    options = defaults;
+	  }
+
+	  var isPasswordRevealed = options.isRevealed;
+
+	  var show = function show() {
+	    input.type = 'text';
+	    isPasswordRevealed = true;
+	  };
+
+	  var hide = function hide() {
+	    input.type = 'password';
+	    isPasswordRevealed = false;
+	  };
+
+	  var toggle = function toggle() {
+	    isPasswordRevealed ? hide() : show();
+	  };
+
+	  if (isPasswordRevealed) show();
+
+	  var init = function init() {
+	    var trigger = document.querySelector(options.trigger.selector);
+
+	    if (!trigger) {
+	      throw new Error('Element "' + options.trigger.selector + '" must exist to init the trigger');
+	    }
+
+	    trigger.addEventListener(options.trigger.eventListener, toggle);
+	  };
+
+	  return {
+	    show: show,
+	    hide: hide,
+	    toggle: toggle,
+	    init: init
+	  };
+	};
+
+	exports.default = PasswordRevealer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var isObj = __webpack_require__(2);
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Sources cannot be null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	function assignKey(to, from, key) {
+		var val = from[key];
+
+		if (val === undefined || val === null) {
+			return;
+		}
+
+		if (hasOwnProperty.call(to, key)) {
+			if (to[key] === undefined || to[key] === null) {
+				throw new TypeError('Cannot convert undefined or null to object (' + key + ')');
+			}
+		}
+
+		if (!hasOwnProperty.call(to, key) || !isObj(val)) {
+			to[key] = val;
+		} else {
+			to[key] = assign(Object(to[key]), from[key]);
+		}
+	}
+
+	function assign(to, from) {
+		if (to === from) {
+			return to;
+		}
+
+		from = Object(from);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				assignKey(to, from, key);
+			}
+		}
+
+		if (Object.getOwnPropertySymbols) {
+			var symbols = Object.getOwnPropertySymbols(from);
+
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					assignKey(to, from, symbols[i]);
+				}
+			}
+		}
+
+		return to;
+	}
+
+	module.exports = function deepAssign(target) {
+		target = toObject(target);
+
+		for (var s = 1; s < arguments.length; s++) {
+			assign(target, arguments[s]);
+		}
+
+		return target;
+	};
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = function (x) {
+		var type = typeof x;
+		return x !== null && (type === 'object' || type === 'function');
+	};
+
+
+/***/ }
+/******/ ])
+});
+;

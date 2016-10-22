@@ -2,11 +2,11 @@
  * password-revealer.js
  * Easily reveal/hide passwords in input fields.
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author Diéssica Gurskas <http://github.com/diessica>
  * @license MIT
  */
-import deepAssign from 'deep-assign'
+import merge from 'merge-deep'
 
 /**
  * @param {String|HTMLElement} input
@@ -38,39 +38,45 @@ const PasswordRevealer = (input, options) => {
   }
 
   if (typeof options === 'object') {
-    options = deepAssign(defaults, options)
+    options = merge({}, defaults, options)
   } else {
     options = defaults
   }
 
-  let isPasswordRevealed = options.isRevealed
+  let { isRevealed } = options
 
   const show = () => {
     input.type = 'text'
-    isPasswordRevealed = true
+    isRevealed = true
   }
 
   const hide = () => {
     input.type = 'password'
-    isPasswordRevealed = false
+    isRevealed = false
   }
 
   const toggle = () => {
-    isPasswordRevealed
+    isRevealed
       ? hide()
       : show()
   }
 
-  if (isPasswordRevealed) show()
+  if (isRevealed) show()
 
-  const init = () => {
-    const trigger = document.querySelector(options.trigger.selector)
+  const init = (triggerAction = toggle) => {
+    const { selector, eventListener } = options.trigger
 
-    if (!trigger) {
-      throw new Error(`Element "${options.trigger.selector}" must exist to init the trigger`)
+    let trigger = selector
+
+    if (typeof selector === 'string' || selector instanceof String) {
+      trigger = document.querySelector(selector)
     }
 
-    trigger.addEventListener(options.trigger.eventListener, toggle)
+    if (!trigger.nodeType) {
+      throw new Error('Trigger must be an HTML element')
+    }
+
+    trigger.addEventListener(eventListener, triggerAction)
   }
 
   return {

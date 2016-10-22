@@ -41,10 +41,10 @@ Default: `false`
 Initial state of the password. When `true`, the input's password value is automatically revealed. <br><br>
 
 ###### `options.trigger.selector`
-Type: `string`<br>
+Type: `string` or `HTMLElement`<br>
 Default: `.PasswordRevealer-toggle`
 
-`class`, `id` or tag name of the element that reveals or hides the password ("trigger"). <br><br>
+Element that reveals or hides the password ("trigger"). <br><br>
 
 ###### `options.trigger.eventListener`
 Type: `string`<br>
