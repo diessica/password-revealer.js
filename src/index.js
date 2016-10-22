@@ -64,7 +64,7 @@ const PasswordRevealer = (input, options) => {
 
     let trigger = selector
 
-    if (typeof selector === 'string' || selector instanceof String) {
+    if (typeof selector === 'string') {
       trigger = document.querySelector(selector)
     }
 
