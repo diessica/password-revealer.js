@@ -33,10 +33,6 @@ const PasswordRevealer = (input, options) => {
     throw new Error('First argument (input) must be an input element')
   }
 
-  if (!input.nodeType) {
-    throw new Error('First argument (input) must be an element')
-  }
-
   if (typeof options === 'object') {
     options = merge({}, defaults, options)
   } else {
@@ -72,7 +68,7 @@ const PasswordRevealer = (input, options) => {
       trigger = document.querySelector(selector)
     }
 
-    if (!trigger.nodeType) {
+    if (!trigger || !trigger.nodeType) {
       throw new Error('Trigger must be an HTML element')
     }
 

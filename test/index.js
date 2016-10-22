@@ -87,3 +87,24 @@ test('must init trigger in DOM element provided', (t) => {
 
   expect(toggleSpy).to.have.been.calledOnce
 })
+
+test('must throw error if input is not provided', (t) => {
+  expect(PasswordRevealer).to.throw('Missing input argument')
+})
+
+test('must throw error if provided element is not an input', (t) => {
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+
+  const instance = () => PasswordRevealer(div)
+
+  expect(instance).to.throw('First argument (input) must be an input element')
+})
+
+test('must throw error if trigger element does not exist', (t) => {
+  const instance = () => (
+    PasswordRevealer(input, { trigger: { selector: '#my-trigger' } }).init()
+  )
+
+  expect(instance).to.throw('Trigger must be an HTML element')
+})
