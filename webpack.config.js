@@ -2,7 +2,6 @@ var webpack = require('webpack')
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 var path = require('path')
 var libraryName = 'PasswordRevealer'
-var plugins = []
 
 var config = {
   entry: __dirname + '/src/index.js',
@@ -34,7 +33,9 @@ var config = {
     root: path.resolve('./src'),
     extensions: ['', '.js']
   },
-  plugins: plugins
+  plugins: [
+    new UglifyJsPlugin({ minimize: true })
+  ]
 }
 
 module.exports = config

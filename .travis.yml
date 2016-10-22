@@ -2,3 +2,11 @@ sudo: false
 language: node_js
 node_js:
   - stable
+deploy:
+  provider: npm
+  email: diessicode@gmail.com
+  api_key:
+    secure: dUgBt/J3xrRqD8jmaL1leWOa7XyqI0+sSLTevSYYIBOrNtGR7x9Ysfis3XDGVqHvekIkNC15ihw84PNulVVlF9upO3KuPJF1qPSqpFCCImikHlxo67kxltZii/ZD/2/l0LuxY8o5J93K3UGrhxK0iJWXweQyEmuaC84GL+LULkNqC+WQ4INR8op0ApmYgjMamvjYoX91peNp0+CcT+oxq9N8SQW+eIPL8PHHQ196b/1FkUnLblr57iVpDafG2/xlCCX2SmdoVHRTbDVu3mGrr9GfVfRMPd0go1cUVNj95f9HZ2uNZysMAoZAkcC9XZwbH8z/DTFLkHxVZg2kg/KLqZ5nsCSRb4OFkIxwAmKL+fMRHu/9XMKkRsmbPf/hTd6eD4gqyDICFESeM5/9olbF0fw0o4/TWCpJgqsYFudekS9YQEA66eU9C0SLuqabB7877xlVvgWIxptdXXLVUqZnUxFk8grzL5pdpPAsL0KRsSnrc/5VCq40ol4j09kN901Wp3e9r49sHxKr490ZLEnS6FJk0LtX8GfguIrFwvnEEcBKDQeSTz0KFLyHy12rzhTeNuy8mTvJSMG3JJDAFVzaCQq45nEEuX3DlWfV8EZrwG9B3t818WYAiK12dWdylCncBiT+evbR11F0qw8JVya6aTOLVqrrmCpKTZMTeUqdkt0=
+  on:
+    tags: true
+    branch: master
