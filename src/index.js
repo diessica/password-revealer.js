@@ -6,7 +6,6 @@
  * @author Diéssica Gurskas <http://github.com/diessica>
  * @license MIT
  */
-import merge from 'merge-deep'
 
 /**
  * @param {String|HTMLElement} input
@@ -34,7 +33,8 @@ const PasswordRevealer = (input, options) => {
   }
 
   if (typeof options === 'object') {
-    options = merge({}, defaults, options)
+    options = Object.assign({}, defaults, options)
+    options.trigger = Object.assign(defaults.trigger, options.trigger)
   } else {
     options = defaults
   }
@@ -69,7 +69,7 @@ const PasswordRevealer = (input, options) => {
     }
 
     if (!trigger || !trigger.nodeType) {
-      throw new Error('Trigger must be an HTML element')
+      throw new Error('Trigger must be a HTML element')
     }
 
     trigger.addEventListener(eventListener, triggerAction)

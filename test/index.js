@@ -1,7 +1,7 @@
 import test from 'ava'
 import { expect } from 'chai'
 import sinon from 'sinon'
-import PasswordRevealer from '../src'
+import PasswordRevealer from '../dist/password-revealer'
 
 let input
 
@@ -106,5 +106,5 @@ test('must throw error if trigger element does not exist', (t) => {
     PasswordRevealer(input, { trigger: { selector: '#my-trigger' } }).init()
   )
 
-  expect(instance).to.throw('Trigger must be an HTML element')
+  expect(instance).to.throw('Trigger must be a HTML element')
 })

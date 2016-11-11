@@ -43,9 +43,6 @@
     "sinon-chai": "^2.8.0",
     "webpack": "1.12.9"
   },
-  "dependencies": {
-    "merge-deep": "^3.0.0"
-  },
   "ava": {
     "require": [
       "babel-register",

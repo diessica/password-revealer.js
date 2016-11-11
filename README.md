@@ -42,7 +42,7 @@ Initial state of the password. When `true`, the input's password value is automa
 
 ###### `options.trigger.selector`
 Type: `string` or `HTMLElement`<br>
-Default: `.PasswordRevealer-toggle`
+Default: `.PasswordRevealer-trigger`
 
 Element that reveals or hides the password ("trigger"). <br><br>
 
