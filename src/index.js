@@ -2,7 +2,7 @@
  * password-revealer.js
  * Easily reveal/hide passwords in input fields.
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @author Diéssica Gurskas <http://github.com/diessica>
  * @license MIT
  */
